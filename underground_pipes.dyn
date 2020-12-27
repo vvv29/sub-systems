@@ -1,0 +1,743 @@
+{
+  "Uuid": "19e9a590-42fc-4329-a38c-df05cee32fc6",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "topotest_v2",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "List": {
+        "Key": "List",
+        "Value": "BuiltIn.ds"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "e09097f1-e6a8-405a-a813-d3ff9e1c45b9-000b8df4"
+      ],
+      "Id": "d3df46fb050f4ecb88e3d7e50037f9e8",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "309ce425ba8d4c959250c4563c369be8",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Topography.Mesh",
+      "Id": "baa58ed28b0e43f1984bd0414c408384",
+      "Inputs": [
+        {
+          "Id": "c9885bc2874345ddaa8033b7b651b7b4",
+          "Name": "topography",
+          "Description": "Revit.Elements.Topography",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f4cd03a0d0bf4d6db0a30b54153f7b1f",
+          "Name": "Mesh",
+          "Description": "Mesh",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the underlying triangular Mesh from the Topography\n\nTopography.Mesh: Mesh"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Mesh.VertexPositions",
+      "Id": "6b9280d625204feab7a0a8d637f64ad1",
+      "Inputs": [
+        {
+          "Id": "d34e6c2df48244e5bdfd2f5d91d94b20",
+          "Name": "mesh",
+          "Description": "Autodesk.DesignScript.Geometry.Mesh",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3873f4210acc42a1854b8bb8413d398e",
+          "Name": "Point[]",
+          "Description": "Point[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The positions of the vertices\n\nMesh.VertexPositions: Point[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.GetItemAtIndex@var[]..[],int",
+      "Id": "f3d86ef4832f4534b83e7a9b5385f766",
+      "Inputs": [
+        {
+          "Id": "ea6c183c60f84013b7af9520304db76b",
+          "Name": "list",
+          "Description": "List to fetch an item from.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e1511d244b8643c39d36b64071e894e1",
+          "Name": "index",
+          "Description": "Index of the item to be fetched.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e57b23b68504444eb60f272de001f711",
+          "Name": "item",
+          "Description": "Item in the list at the given index.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns an item from the given list that's located at the specified index.\n\nList.GetItemAtIndex (list: var[]..[], index: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Mesh.FaceIndices",
+      "Id": "c3526e320f854465bbf5eed3053e35e8",
+      "Inputs": [
+        {
+          "Id": "c357aafdd3ca41e092a1541a9524dbc8",
+          "Name": "mesh",
+          "Description": "Autodesk.DesignScript.Geometry.Mesh",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b1dd998576de4327915fc90a758e6dd3",
+          "Name": "IndexGroup[]",
+          "Description": "IndexGroup[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The vertex indices that make up each face in a counterclockwise fashion\n\nMesh.FaceIndices: IndexGroup[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[ ind.A, ind.B, ind.C ];",
+      "Id": "996824e98b2841ed8a6418caecceb084",
+      "Inputs": [
+        {
+          "Id": "fabbd1251cea457fb58e1c0054c8f051",
+          "Name": "ind",
+          "Description": "ind",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a94c4a4ca007430bbb277be1c78556ae",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Transpose@var[]..[]",
+      "Id": "6867bef52a344660b0a5a41d86adb852",
+      "Inputs": [
+        {
+          "Id": "682c98cdfe554431b45909f596bf0be7",
+          "Name": "lists",
+          "Description": "A list of lists to be transposed.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "de6729797349477093967549bc27dd8b",
+          "Name": "lists",
+          "Description": "A list of transposed lists.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Swaps rows and columns in a list of lists. If there are some rows that are shorter than others, null values are inserted as place holders in the resultant array such that it is always rectangular.\n\nList.Transpose (lists: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.ByPerimeterPoints@Autodesk.DesignScript.Geometry.Point[]",
+      "Id": "4635a560048b4c2aa5654799fb15ba2d",
+      "Inputs": [
+        {
+          "Id": "bbf59014931d4a39871429fd26ee1fcf",
+          "Name": "points",
+          "Description": "Point[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1f1a198cb2d54e688da2e0d796e2b57d",
+          "Name": "Surface",
+          "Description": "Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Polygon Surface connecting input Points in a closed Polygon and patching it.\n\nSurface.ByPerimeterPoints (points: Point[]): Surface"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.PolySurface.ByJoinedSurfaces@Autodesk.DesignScript.Geometry.Surface[]",
+      "Id": "8ac778ad43234ed6b0027eef9e920905",
+      "Inputs": [
+        {
+          "Id": "d49b434ab8ca4a48973b5e6ae7fa46ee",
+          "Name": "surfaces",
+          "Description": "Surfaces to join into polysurface\n\nSurface[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4699bd6a2c884b8fafd31213e90351ab",
+          "Name": "PolySurface",
+          "Description": "PolySurface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Make Polysurface by joining surfaces.\n\nPolySurface.ByJoinedSurfaces (surfaces: Surface[]): PolySurface"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#!/usr/bin/python\r\n# -*- coding: utf-8 -*-\r\nimport clr\r\nimport math\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n\r\n# Preparing input from Dynamo to Revit\r\n\r\nptLst = IN[0]\r\nres = []\r\n\r\nfor pts in ptLst:\r\n    master = []\r\n    grp = [pts[0]]\r\n    for i in range(len(pts) - 2):\r\n        thisVec = Vector.ByTwoPoints(pts[i], pts[i + 1])\r\n        nextVec = Vector.ByTwoPoints(pts[i + 1], pts[i + 2])\r\n        angle = Vector.AngleWithVector(thisVec, nextVec)\r\n\r\n        if angle < 3 and i != len(pts) - 3:\r\n            grp.append(pts[i + 1])\r\n        elif angle < 3 and i == len(pts) - 3:\r\n            grp.append(pts[i + 1])\r\n            grp.append(pts[i + 2])\r\n            master.append(grp)\r\n        else:\r\n            grp.append(pts[i + 1])\r\n            master.append(grp)\r\n            grp = [pts[i + 1]]\r\n    res.append(master)\r\nOUT = res\r\n",
+      "VariableInputPorts": true,
+      "Id": "d6f7ffe8627740ee9d1e8578886ef78b",
+      "Inputs": [
+        {
+          "Id": "9243d9b21e9c4b22944961a3149f1ff0",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3a8a5780714e4b9799328fe273385ed5",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "d651ea81-6a46-45ec-bed1-992e2932c0ca-000bd034",
+        "88efa544-e0f3-48f0-9273-37d4ba395819-000bd0c9",
+        "88efa544-e0f3-48f0-9273-37d4ba395819-000bd0d6"
+      ],
+      "Id": "83b83b04d7344ce2a42479e7506f8acf",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "63996cc92feb4a04a27c65e76aee9770",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import clr\r\n\r\nclr.AddReference('ProtoGeometry')\r\nimport Autodesk.DesignScript.Geometry as DS\r\n\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\nfrom Autodesk.Revit.DB.Structure import *\r\nfrom Autodesk.Revit.DB.Mechanical import *\r\nfrom Autodesk.Revit.DB.Plumbing import *\r\n\r\nclr.AddReference('RevitAPIUI')\r\nfrom Autodesk.Revit.UI import *\r\n\r\nclr.AddReference('System')\r\nfrom System.Collections.Generic import List\r\n\r\nclr.AddReference('RevitNodes')\r\nimport Revit\r\nclr.ImportExtensions(Revit.GeometryConversion)\r\nclr.ImportExtensions(Revit.Elements)\r\n\r\nclr.AddReference('RevitServices')\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\nuidoc=DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument\r\n\r\n\r\ndef CreateRays( mepEle ):\r\n    mepLine = mepEle.GetLocation()\r\n\r\n    pts = []\r\n\r\n    for param in [ i* 0.05 for i in range(0,21) ] :\r\n        pt = mepLine.PointAtParameter( param )\r\n        pts.append( pt )\r\n    \r\n    rays = []\r\n    for pt in pts:\r\n        ray = DS.Line.ByStartPointDirectionLength( pt , DS.Vector.ZAxis(), 5000)\r\n        rays.append( ray )\r\n\r\n    return rays\r\n\r\ndef FindIntersects( rays, topoPolysrf ):\r\n    intersects = []\r\n    for ray in rays :\r\n        inter = topoPolysrf.Intersect( ray )\r\n        if len( inter ) > 0 :\r\n            intersects.append( inter[0] )\r\n        else:\r\n            intersects.append( ray.StartPoint )\r\n    return intersects\r\n\r\n\r\nmepElements = IN[0]\r\ntopoPolysrf = IN[1]\r\n\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\n\r\nres = []\r\nmepLines = []\r\nfor mepEle in mepElements:\r\n    rays =  CreateRays(mepEle)\r\n    intersects = FindIntersects( rays, topoPolysrf )\r\n    res.append( intersects )\r\n\r\nTransactionManager.Instance.TransactionTaskDone()\r\n\r\nOUT = res",
+      "VariableInputPorts": true,
+      "Id": "45fc212fab4144edbabd590c313f5381",
+      "Inputs": [
+        {
+          "Id": "c42bd42a2857427f9b782acc41f421a5",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cdc76d1292384957adb03d5452796112",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d9becaefad0b43ef99a8136b56456f42",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import clr\r\n\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\nfrom Autodesk.Revit.DB.Structure import *\r\nfrom Autodesk.Revit.DB.Mechanical import *\r\nfrom Autodesk.Revit.DB.Plumbing import *\r\n\r\nclr.AddReference('RevitAPIUI')\r\nfrom Autodesk.Revit.UI import *\r\n\r\nclr.AddReference('System')\r\nfrom System.Collections.Generic import List\r\n\r\nclr.AddReference('RevitNodes')\r\nimport Revit\r\nclr.ImportExtensions(Revit.GeometryConversion)\r\nclr.ImportExtensions(Revit.Elements)\r\n\r\nclr.AddReference('RevitServices')\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\nuidoc=DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument\r\n\r\nsegmentsLst = IN[0]\r\nmepEles = (UnwrapElement(e) for e in IN[1])\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\n\r\nalignedPipes = []\r\nfor mepEle, segments in zip( mepEles, segmentsLst ):\r\n\tfor seg in segments:\r\n\t\tp1 = seg[0]\r\n\t\tp2 = seg[-1]\r\n\t\tnewpipe = Pipe.Create(doc, mepEle.MEPSystem.GetTypeId() , mepEle.GetTypeId() , mepEle.ReferenceLevel.Id, p1.ToXyz(), p2.ToXyz() )\r\n\t\t\r\n\t\talignedPipes.append( newpipe )\r\n\r\nTransactionManager.Instance.TransactionTaskDone()\r\n\r\nOUT = alignedPipes",
+      "VariableInputPorts": true,
+      "Id": "d410618001b8473ba6616aadb1413a40",
+      "Inputs": [
+        {
+          "Id": "fb5a8419b4f34f96b89841a99b085334",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9768ccd49de94e3895c174990261f6b9",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c5a300f993b8460ab6d5d6e36bb10e6a",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "309ce425ba8d4c959250c4563c369be8",
+      "End": "c9885bc2874345ddaa8033b7b651b7b4",
+      "Id": "06d0bbe1f4a749758fa1cae8d162fe45"
+    },
+    {
+      "Start": "f4cd03a0d0bf4d6db0a30b54153f7b1f",
+      "End": "d34e6c2df48244e5bdfd2f5d91d94b20",
+      "Id": "e5fb46d4a01c4881a1b436277958c12c"
+    },
+    {
+      "Start": "f4cd03a0d0bf4d6db0a30b54153f7b1f",
+      "End": "c357aafdd3ca41e092a1541a9524dbc8",
+      "Id": "b8278c4cda524cb48afb3b4bd6e84807"
+    },
+    {
+      "Start": "3873f4210acc42a1854b8bb8413d398e",
+      "End": "ea6c183c60f84013b7af9520304db76b",
+      "Id": "c86cfcfa21b44dc6aca7bebee0a105d5"
+    },
+    {
+      "Start": "e57b23b68504444eb60f272de001f711",
+      "End": "682c98cdfe554431b45909f596bf0be7",
+      "Id": "67d2e5c8e52f41da975b926938b89edc"
+    },
+    {
+      "Start": "b1dd998576de4327915fc90a758e6dd3",
+      "End": "fabbd1251cea457fb58e1c0054c8f051",
+      "Id": "d54d4ce3f3884fd1bea36f8b68d0e9dd"
+    },
+    {
+      "Start": "a94c4a4ca007430bbb277be1c78556ae",
+      "End": "e1511d244b8643c39d36b64071e894e1",
+      "Id": "df6271a2cbed4bb3a36a6e75ab1c4ac0"
+    },
+    {
+      "Start": "de6729797349477093967549bc27dd8b",
+      "End": "bbf59014931d4a39871429fd26ee1fcf",
+      "Id": "ed34f0fc072240afb98e830e34636a00"
+    },
+    {
+      "Start": "1f1a198cb2d54e688da2e0d796e2b57d",
+      "End": "d49b434ab8ca4a48973b5e6ae7fa46ee",
+      "Id": "69a5b100eb984d85b28c398f168b8f89"
+    },
+    {
+      "Start": "4699bd6a2c884b8fafd31213e90351ab",
+      "End": "cdc76d1292384957adb03d5452796112",
+      "Id": "baf91ee5cea745f38e56feb89cfdc89f"
+    },
+    {
+      "Start": "3a8a5780714e4b9799328fe273385ed5",
+      "End": "fb5a8419b4f34f96b89841a99b085334",
+      "Id": "73ec899ec1bf495f9f34b8fa30541ae0"
+    },
+    {
+      "Start": "63996cc92feb4a04a27c65e76aee9770",
+      "End": "c42bd42a2857427f9b782acc41f421a5",
+      "Id": "8b72c27cc14e4d47a262e72d9b406a44"
+    },
+    {
+      "Start": "63996cc92feb4a04a27c65e76aee9770",
+      "End": "9768ccd49de94e3895c174990261f6b9",
+      "Id": "b02b823ad6c74aa881e5a406f252e4a8"
+    },
+    {
+      "Start": "d9becaefad0b43ef99a8136b56456f42",
+      "End": "9243d9b21e9c4b22944961a3149f1ff0",
+      "Id": "f41540731fbc45f1927d0e1d51be7b3b"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.5.0.7460",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -27.769714368151714,
+      "EyeY": 6.1612615938416226,
+      "EyeZ": -35.544265205099308,
+      "LookX": -3.5768441733157985,
+      "LookY": -3.4137721107282566,
+      "LookZ": -6.3193146216976146,
+      "UpX": -0.10913147554813241,
+      "UpY": 0.97514935430541017,
+      "UpZ": -0.19280575157944993
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Element",
+        "Id": "d3df46fb050f4ecb88e3d7e50037f9e8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 173.14699457597987,
+        "Y": 28.57717664030281
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Topography.Mesh",
+        "Id": "baa58ed28b0e43f1984bd0414c408384",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 466.58564759012825,
+        "Y": 44.09510512751234
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Mesh.VertexPositions",
+        "Id": "6b9280d625204feab7a0a8d637f64ad1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 919.37370806071749,
+        "Y": 35.20440516243093
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "List.GetItemAtIndex",
+        "Id": "f3d86ef4832f4534b83e7a9b5385f766",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1536.3830931247842,
+        "Y": 35.525840766994719
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Mesh.FaceIndices",
+        "Id": "c3526e320f854465bbf5eed3053e35e8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 932.79822936871528,
+        "Y": 212.81018414463904
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Code Block",
+        "Id": "996824e98b2841ed8a6418caecceb084",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1220.292396943692,
+        "Y": 215.21658710498605
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "List.Transpose",
+        "Id": "6867bef52a344660b0a5a41d86adb852",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1799.9915103632698,
+        "Y": 49.486636897064614
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Surface.ByPerimeterPoints",
+        "Id": "4635a560048b4c2aa5654799fb15ba2d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2055.5626783793696,
+        "Y": 32.401273181678675
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "PolySurface.ByJoinedSurfaces",
+        "Id": "8ac778ad43234ed6b0027eef9e920905",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2308.2172800695803,
+        "Y": 45.7358932091951
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "d6f7ffe8627740ee9d1e8578886ef78b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3259.2172577273236,
+        "Y": -255.48901292880151
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Elements",
+        "Id": "83b83b04d7344ce2a42479e7506f8acf",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1982.7428481521438,
+        "Y": -309.16616512210828
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "45fc212fab4144edbabd590c313f5381",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2962.0939774468666,
+        "Y": -270.06350259771534
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "d410618001b8473ba6616aadb1413a40",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3555.6738780341802,
+        "Y": -49.540641326795253
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "16d8dfab97f44a97bfb79d0f3b46b23b",
+        "Title": "get topo mesh",
+        "Nodes": [
+          "baa58ed28b0e43f1984bd0414c408384",
+          "6b9280d625204feab7a0a8d637f64ad1",
+          "f3d86ef4832f4534b83e7a9b5385f766",
+          "c3526e320f854465bbf5eed3053e35e8",
+          "996824e98b2841ed8a6418caecceb084",
+          "6867bef52a344660b0a5a41d86adb852",
+          "4635a560048b4c2aa5654799fb15ba2d",
+          "8ac778ad43234ed6b0027eef9e920905"
+        ],
+        "Left": 456.58564759012825,
+        "Top": -20.798726818321327,
+        "Width": 2102.4316324794522,
+        "Height": 328.61531392330733,
+        "FontSize": 36.0,
+        "InitialTop": 32.401273181678675,
+        "InitialHeight": 327.81531392330737,
+        "TextblockHeight": 43.2,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "31e45283e82d4a6ba239beb103ffc999",
+        "Title": "chop into segments",
+        "Nodes": [
+          "d6f7ffe8627740ee9d1e8578886ef78b"
+        ],
+        "Left": 3249.2172577273236,
+        "Top": -351.88901292880155,
+        "Width": 162.98666666666668,
+        "Height": 189.00000000000003,
+        "FontSize": 36.0,
+        "InitialTop": -255.48901292880151,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 86.4,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "de07333459824f1aa5f5fe339e79081f",
+        "Title": "select topo",
+        "Nodes": [
+          "d3df46fb050f4ecb88e3d7e50037f9e8"
+        ],
+        "Left": 163.14699457597987,
+        "Top": -24.622823359697193,
+        "Width": 188.0,
+        "Height": 173.0,
+        "FontSize": 36.0,
+        "InitialTop": 28.57717664030281,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 43.2,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "dbf9d726e1554dc08daeb0e2f67d06d0",
+        "Title": "ray trace",
+        "Nodes": [
+          "45fc212fab4144edbabd590c313f5381"
+        ],
+        "Left": 2952.0939774468666,
+        "Top": -323.26350259771533,
+        "Width": 144.8,
+        "Height": 171.39999999999998,
+        "FontSize": 36.0,
+        "InitialTop": -270.06350259771534,
+        "InitialHeight": 148.2,
+        "TextblockHeight": 43.2,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "975af85a74fc434f952f99631362eb32",
+        "Title": "pipe lines",
+        "Nodes": [
+          "d410618001b8473ba6616aadb1413a40"
+        ],
+        "Left": 3545.6738780341802,
+        "Top": -145.94064132679526,
+        "Width": 144.8,
+        "Height": 214.60000000000002,
+        "FontSize": 36.0,
+        "InitialTop": -49.540641326795253,
+        "InitialHeight": 148.2,
+        "TextblockHeight": 86.4,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": 17.982574022224753,
+    "Y": 130.70320525075948,
+    "Zoom": 0.28694328676999464
+  }
+}
